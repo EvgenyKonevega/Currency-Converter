@@ -1,0 +1,6 @@
+const types = {
+  GET_CURRENCIES_SUCCESS: 'GET_CURRENCIES_SUCCESS',
+  GET_COUNTRIES_SUCCESS: 'GET_COUNTRIES_SUCCESS',
+};
+
+export default types;
