@@ -6,7 +6,7 @@ class ConversionService extends BaseService {
     super('', 'ConversionService');
   }
 
-  getAll = async () => this.axios.get('/latest');
+  convert = async (searchParams) => this.axios.get('/latest', { params: searchParams });
 
 }
 

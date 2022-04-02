@@ -1,8 +1,11 @@
 import types from './types';
 
 const initialState = {
+  isLoading: false,
+  error: '',
   countries: {},
   currencies: {},
+  rates: {},
 };
 
 function currenciesReducer(state = initialState, action) {
@@ -17,6 +20,28 @@ function currenciesReducer(state = initialState, action) {
       return {
         ...state,
         countries: action.payload,
+      };
+    }
+
+    case types.GET_RATES_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+    case types.GET_RATES_SUCCESS: {
+      return {
+        ...state,
+        rates: action.payload,
+        isLoading: false,
+      };
+    }
+
+    case types.GET_RATES_ERROR: {
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
       };
     }
     default:
